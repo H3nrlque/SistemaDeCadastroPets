@@ -14,18 +14,19 @@ public class CadastrarPet {
         String tipo = tc.nextLine();
         String sexo = tc.nextLine();
         String endereco = tc.nextLine();
-        Integer idade = tc.nextInt();
-        Double peso = tc.nextDouble();
+        int idade = tc.nextInt();
+        double peso = tc.nextDouble();
         String raca = tc.nextLine();
 
         String[] regexs = {"[a-zA-Z]", "[\\d]"};
-        String[] dados = {nome, idade.toString()};
+        String[] dados = {nome, Integer.toString(idade)};
 
         boolean isValid = false;
         for (String dado : dados) {
             for (String regex : regexs) {
                 if (dado.matches(regex)) {
                     isValid = true;
+                    break;
                 }
             }
         }
@@ -37,7 +38,7 @@ public class CadastrarPet {
         }
         if (isValid) {
             Pet pet = new Pet(nome, TipoDeAnimal.valueOf(tipo), Sexo.valueOf(sexo), endereco, idade, peso, raca);
-            pet.adicionarPet(pet);
+            Pet.adicionarPet(pet);
             SalvarPets.salvar(pet);
         }
 

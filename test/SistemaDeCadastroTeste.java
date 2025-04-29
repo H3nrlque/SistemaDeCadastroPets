@@ -1,5 +1,6 @@
 package SistemaDeCadastroPet.test;
 
+import SistemaDeCadastroPet.entities.Pet;
 import SistemaDeCadastroPet.services.CadastrarPet;
 
 import java.util.Scanner;
@@ -7,13 +8,34 @@ import java.util.Scanner;
 public class SistemaDeCadastroTeste {
     public static void main(String[] args) {
         Scanner tc = new Scanner(System.in);
-        int opcao = menu();
-        if (opcao <= 0) {
+        int opcao;
+        Pet pet = null;
+        do {
             opcao = menu();
-        }
-        if (opcao == 1) {
-            CadastrarPet.cadastrarPet();
-        }
+            if (opcao <= 0) {
+                opcao = menu();
+            }
+            switch (opcao) {
+                case 1:
+                    CadastrarPet.cadastrarPet();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    Pet.listarTodosOsPets();
+                    break;
+                case 5:
+                    Pet.buscarPorFiltro();
+                    break;
+                case 6:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    opcao = menu();
+            }
+        } while (opcao != 6);
 
 
 
