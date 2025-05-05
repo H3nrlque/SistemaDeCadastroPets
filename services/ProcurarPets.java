@@ -6,6 +6,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProcurarPets {
+    public static void listarTodosOsPets(List<Pet> pets) {
+        for (Pet pet : pets) {
+            System.out.println(pet);
+        }
+
+    }
     public static void buscarPorFiltro(List<Pet> pets) {
         Scanner tc = new Scanner(System.in);
         System.out.print("Escolha o tipo de animal - [Cachorro, Gato]: ");
@@ -15,19 +21,19 @@ public class ProcurarPets {
         switch (criterio) {
             case "nome":
                 System.out.print("Digite o nome: ");
-                String nome = tc.nextLine();
+                String nome = tc.nextLine().toLowerCase();
                 for (Pet pet : pets) {
-                    if (pet.getNome().equalsIgnoreCase(nome) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
-                        System.out.println(pet);
+                    if (pet.getNome().toLowerCase().contains(nome) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
+                        System.out.println(pets.indexOf(pet)+". "+pet);
                     }
                 }
                 break;
             case "sexo":
                 System.out.print("Digite o sexo: ");
-                String sexo = tc.nextLine();
+                String sexo = tc.nextLine().toLowerCase();
                 for (Pet pet : pets) {
-                    if (pet.getSexo().toString().equalsIgnoreCase(sexo) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
-                        System.out.println(pet);
+                    if (pet.getSexo().toString().toLowerCase().contains(sexo) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
+                        System.out.println(pets.indexOf(pet)+". "+pet);
                     }
                 }
                 break;
@@ -36,7 +42,7 @@ public class ProcurarPets {
                 int idade = tc.nextInt();
                 for (Pet pet : pets) {
                     if (pet.getIdade() == idade && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
-                        System.out.println(pet);
+                        System.out.println(pets.indexOf(pet)+". "+pet);
                     }
                 }
                 break;
@@ -45,29 +51,27 @@ public class ProcurarPets {
                 double peso = tc.nextDouble();
                 for (Pet pet : pets) {
                     if (pet.getPeso() == peso && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
-                        System.out.println(pet);
+                        System.out.println(pets.indexOf(pet)+". "+pet);
                     }
                 }
                 break;
             case "raça":
                 System.out.print("Digite a raça: ");
-                String raca = tc.nextLine();
+                String raca = tc.nextLine().toLowerCase();
                 for (Pet pet : pets) {
-                    if (pet.getRaca().equalsIgnoreCase(raca) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
-                        System.out.println(pet);
+                    if (pet.getRaca().toLowerCase().contains(raca) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
+                        System.out.println(pets.indexOf(pet)+". "+pet);
                     }
                 }
                 break;
             case "endereço":
                 System.out.print("Digite o endereço: ");
-                String endereco = tc.nextLine();
+                String endereco = tc.nextLine().toLowerCase();
                 for (Pet pet : pets) {
-                    if (pet.getEndereco().equalsIgnoreCase(endereco) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
-                        System.out.println(pet);
+                    if (pet.getEndereco().toLowerCase().contains(endereco) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo)) {
+                        System.out.println(pets.indexOf(pet)+". "+pet);
                     }
                 }
-
         }
-
     }
 }

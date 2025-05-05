@@ -9,7 +9,6 @@ public class SistemaDeCadastroTeste {
     public static void main(String[] args) {
         Scanner tc = new Scanner(System.in);
         int opcao;
-        Pet pet = null;
         do {
             opcao = menu();
             if (opcao <= 0) {
@@ -20,8 +19,10 @@ public class SistemaDeCadastroTeste {
                     CadastrarPet.cadastrarPet();
                     break;
                 case 2:
+                    Pet.alteraPet();
                     break;
                 case 3:
+                    Pet.deletarPet();
                     break;
                 case 4:
                     Pet.listarTodosOsPets();
@@ -36,9 +37,6 @@ public class SistemaDeCadastroTeste {
                     opcao = menu();
             }
         } while (opcao != 6);
-
-
-
     }
 
     public static int menu() {

@@ -2,10 +2,12 @@ package SistemaDeCadastroPet.entities;
 
 import SistemaDeCadastroPet.enums.Sexo;
 import SistemaDeCadastroPet.enums.TipoDeAnimal;
+import SistemaDeCadastroPet.services.AlterandoDados;
 import SistemaDeCadastroPet.services.ProcurarPets;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Pet {
     private String nome;
@@ -37,10 +39,7 @@ public class Pet {
     }
 
     public static void listarTodosOsPets() {
-        for (Pet pet : pets) {
-            System.out.println(pet);
-        }
-
+        ProcurarPets.listarTodosOsPets(pets);
     }
 
     public static void deletarPet(String nome) {
@@ -52,7 +51,18 @@ public class Pet {
     }
 
     public static void buscarPorFiltro() {
-        ProcurarPets.buscarPorFiltro(pets);
+         ProcurarPets.buscarPorFiltro(pets);
+    }
+
+    public static void alteraPet() {
+        Scanner tc = new Scanner(System.in);
+        buscarPorFiltro();
+        AlterandoDados.alterando(pets);
+
+    }
+
+    public static void deletarPet() {
+        buscarPorFiltro();
 
     }
 
@@ -97,5 +107,25 @@ public class Pet {
                +idade + " anos - "
                +peso + "Kg - "
                +raca + "\n";
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setIdade(Integer idade) {
+        this.idade = idade;
+    }
+
+    public void setPeso(Double peso) {
+        this.peso = peso;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
     }
 }

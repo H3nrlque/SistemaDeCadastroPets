@@ -16,6 +16,7 @@ public class CadastrarPet {
         String endereco = tc.nextLine();
         int idade = tc.nextInt();
         double peso = tc.nextDouble();
+        tc.nextLine();
         String raca = tc.nextLine();
 
         String[] regexs = {"[a-zA-Z]", "[\\d]"};
