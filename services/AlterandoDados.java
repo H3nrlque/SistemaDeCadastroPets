@@ -11,7 +11,7 @@ public class AlterandoDados {
         System.out.print("Digite o número do pet que você quer alterar: ");
         int n = tc.nextInt();
         System.out.print("O que você deseja alterar? ");
-        String oq = tc.nextLine().toLowerCase();
+        String oq = tc.nextLine();
         switch (oq) {
             case "Nome":
                 System.out.print("Digite o novo nome: ");
