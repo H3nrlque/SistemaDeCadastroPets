@@ -22,13 +22,33 @@ public class SistemaDeCadastroTeste {
                     Pet.alteraPet();
                     break;
                 case 3:
-                    Pet.deletarPet();
+                    System.out.print("Por quantos critérios você deseja buscar[Max 2]? ");
+                    int qua = tc.nextInt();
+                    switch (qua) {
+                        case 1:
+                            Pet.buscarPorFiltro();
+                            Pet.deletarPet();
+                            break;
+                        case 2:
+                            Pet.buscarPor2Filtros();
+                            Pet.deletarPet();
+                            break;
+                    }
                     break;
                 case 4:
                     Pet.listarTodosOsPets();
                     break;
                 case 5:
-                    Pet.buscarPorFiltro();
+                    System.out.print("Por quantos critérios você deseja buscar[Max 2]?");
+                    int q = tc.nextInt();
+                    switch (q) {
+                        case 1:
+                            Pet.buscarPorFiltro();
+                            break;
+                        case 2:
+                            Pet.buscarPor2Filtros();
+                            break;
+                    }
                     break;
                 case 6:
                     System.out.println("Saindo...");

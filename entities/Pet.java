@@ -3,11 +3,11 @@ package SistemaDeCadastroPet.entities;
 import SistemaDeCadastroPet.enums.Sexo;
 import SistemaDeCadastroPet.enums.TipoDeAnimal;
 import SistemaDeCadastroPet.services.AlterandoDados;
+import SistemaDeCadastroPet.services.DeletandoPet;
 import SistemaDeCadastroPet.services.ProcurarPets;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Pet {
     private String nome;
@@ -42,27 +42,23 @@ public class Pet {
         ProcurarPets.listarTodosOsPets(pets);
     }
 
-    public static void deletarPet(String nome) {
-        for (Pet pet : pets) {
-            if (pet.nome.equalsIgnoreCase(nome)) {
-                pets.remove(pet);
-            }
-        }
-    }
 
     public static void buscarPorFiltro() {
          ProcurarPets.buscarPorFiltro(pets);
     }
 
+    public static void buscarPor2Filtros() {
+        ProcurarPets.buscarPor2Filtros(pets);
+    }
+
     public static void alteraPet() {
-        Scanner tc = new Scanner(System.in);
         buscarPorFiltro();
         AlterandoDados.alterando(pets);
 
     }
 
     public static void deletarPet() {
-        buscarPorFiltro();
+        DeletandoPet.deletando(pets);
 
     }
 

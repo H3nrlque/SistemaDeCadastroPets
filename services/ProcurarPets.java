@@ -74,4 +74,79 @@ public class ProcurarPets {
                 }
         }
     }
+
+    public static void buscarPor2Filtros(List<Pet> pets) {
+        Scanner tc = new Scanner(System.in);
+        System.out.print("Escolha o tipo de animal - [Cachorro, Gato]: ");
+        String tipo = tc.nextLine();
+        System.out.println("Qual critério você deseja utilizar? ");
+        System.out.println("[1] Nome e Idade");
+        System.out.println("[2] Nome e Peso");
+        System.out.println("[3] Idade e Peso");
+        System.out.println("[4] Idade e Raça");
+        System.out.println("[5] Peso e Raça");
+        int esc = tc.nextInt();
+        tc.nextLine();
+        switch (esc) {
+            case 1:
+                System.out.print("Digite o nome: ");
+                String nome = tc.nextLine().toLowerCase();
+                System.out.print("Digite a idade: ");
+                int idade = tc.nextInt();
+                for (Pet pet : pets) {
+                    if (pet.getNome().toLowerCase().contains(nome) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo) && pet.getIdade() == idade ) {
+                        System.out.println(pets.indexOf(pet)+". "+pet);
+                    }
+                }
+                break;
+            case 2:
+                System.out.print("Digite o nome: ");
+                String nome2 = tc.nextLine().toLowerCase();
+                System.out.print("Digite o peso: ");
+                double peso2 = tc.nextDouble();
+                for (Pet pet : pets) {
+                    if (pet.getNome().toLowerCase().contains(nome2) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo) && pet.getPeso() == peso2) {
+                        System.out.println(pets.indexOf(pet)+". "+pet);
+                    }
+                }
+                break;
+
+            case 3:
+                System.out.print("Digite a idade: ");
+                int idade3 = tc.nextInt();
+                System.out.print("Digite o peso: ");
+                double peso3 = tc.nextDouble();
+                for (Pet pet : pets) {
+                    if (pet.getIdade() == idade3 && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo) && pet.getPeso() == peso3) {
+                        System.out.println(pets.indexOf(pet)+". "+pet);
+                    }
+                }
+                break;
+
+            case 4:
+                System.out.print("Digite a idade: ");
+                int idade4 = tc.nextInt();
+                System.out.print("Digite a raça: ");
+                String raca4 = tc.nextLine().toLowerCase();
+                for (Pet pet : pets) {
+                    if (pet.getIdade() == idade4 && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo) && pet.getRaca().toLowerCase().contains(raca4)) {
+                        System.out.println(pets.indexOf(pet)+". "+pet);
+                    }
+                }
+                break;
+            case 5:
+                System.out.print("Digite o peso: ");
+                double peso5 = tc.nextDouble();
+                System.out.print("Digite a raça: ");
+                String raca5 = tc.nextLine().toLowerCase();
+                for (Pet pet : pets) {
+                    if (pet.getRaca().toLowerCase().contains(raca5) && pet.getTipoDeAnimal().toString().equalsIgnoreCase(tipo) && pet.getPeso() == peso5) {
+                        System.out.println(pets.indexOf(pet)+". "+pet);
+                    }
+                }
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + esc);
+        }
+    }
 }
