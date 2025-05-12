@@ -23,19 +23,19 @@ public class SalvarPets {
         }
         if (file.exists()) {
             try (FileWriter fw = new FileWriter(file); BufferedWriter bw = new BufferedWriter(fw)) {
-                bw.write("Nome: ".concat(pet.getNome()));
+                bw.write(pet.getNome());
                 bw.newLine();
-                bw.write("Tipo: ".concat(pet.getTipoDeAnimal().toString()));
+                bw.write(pet.getTipoDeAnimal().toString());
                 bw.newLine();
-                bw.write("Sexo: ".concat(pet.getSexo().toString()));
+                bw.write(pet.getSexo().toString());
                 bw.newLine();
-                bw.write("Endereço: ".concat(pet.getEndereco()));
+                bw.write(pet.getEndereco());
                 bw.newLine();
-                bw.write("Idade: " + pet.getIdade() + " anos");
+                bw.write(pet.getIdade() + " anos");
                 bw.newLine();
-                bw.write("Peso: " + pet.getPeso() + "Kg");
+                bw.write(pet.getPeso() + "Kg");
                 bw.newLine();
-                bw.write("Raça: ".concat(pet.getRaca()));
+                bw.write(pet.getRaca());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

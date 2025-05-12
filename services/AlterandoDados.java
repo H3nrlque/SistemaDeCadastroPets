@@ -31,17 +31,17 @@ public class AlterandoDados {
                 break;
             case "Idade":
                 System.out.print("Digite a nova idade: ");
-                int novaIdade = tc.nextInt();
+                String novaIdade = tc.nextLine();
                 pets.get(n).setIdade(novaIdade);
-                if (pets.get(n).getIdade() == novaIdade) {
+                if (pets.get(n).getIdade().equalsIgnoreCase(novaIdade)) {
                     System.out.println("Idade alterada com sucesso");
                 }
                 break;
             case "Peso":
                 System.out.print("Digite o novo peso: ");
-                double novoPeso = tc.nextDouble();
+                String novoPeso = tc.nextLine();
                 pets.get(n).setPeso(novoPeso);
-                if (pets.get(n).getPeso() == novoPeso) {
+                if (pets.get(n).getPeso().equalsIgnoreCase(novoPeso)) {
                     System.out.println("Peso alterada com sucesso");
                 }
                 break;

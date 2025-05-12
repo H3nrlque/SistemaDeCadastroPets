@@ -14,15 +14,23 @@ public class Pet {
     private TipoDeAnimal tipoDeAnimal;
     private Sexo sexo;
     private String endereco;
-    private Integer idade;
-    private Double peso;
+    private String idade;
+    private String peso;
     private String raca;
+    public static final String nao = "Não Informado";
     private static List<Pet> pets = new ArrayList<>();
 
     public Pet() {
     }
 
-    public Pet(String nome, TipoDeAnimal tipoDeAnimal, Sexo sexo, String endereco, int idade, double peso, String raca) {
+    public Pet(String nome, TipoDeAnimal tipoDeAnimal, Sexo sexo, String endereco, String idade, String peso, String raca) {
+
+        if (nome.trim().isEmpty() && idade.trim().isEmpty() && peso.trim().isEmpty() && raca.trim().isEmpty()) {
+            nome = Pet.nao;
+            idade = Pet.nao;
+            peso = Pet.nao;
+            raca = Pet.nao;
+        }
         this.nome = nome;
         this.tipoDeAnimal = tipoDeAnimal;
         this.sexo = sexo;
@@ -62,6 +70,10 @@ public class Pet {
 
     }
 
+    public static void setPets(List<Pet> pets) {
+        Pet.pets = pets;
+    }
+
     public List<Pet> getPets() {
         return pets;
     }
@@ -82,11 +94,11 @@ public class Pet {
         return endereco;
     }
 
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
@@ -113,11 +125,11 @@ public class Pet {
         this.endereco = endereco;
     }
 
-    public void setIdade(Integer idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 
-    public void setPeso(Double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 

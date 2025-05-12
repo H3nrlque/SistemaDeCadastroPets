@@ -2,11 +2,13 @@ package SistemaDeCadastroPet.test;
 
 import SistemaDeCadastroPet.entities.Pet;
 import SistemaDeCadastroPet.services.CadastrarPet;
+import SistemaDeCadastroPet.services.LeitorDePets;
 
 import java.util.Scanner;
 
 public class SistemaDeCadastroTeste {
     public static void main(String[] args) {
+        LeitorDePets.leitor();
         Scanner tc = new Scanner(System.in);
         int opcao;
         do {
