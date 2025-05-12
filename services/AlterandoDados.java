@@ -10,10 +10,10 @@ public class AlterandoDados {
         Scanner tc = new Scanner(System.in);
         System.out.print("Digite o número do pet que você quer alterar: ");
         int n = tc.nextInt();
-        System.out.print("O que você deseja alterar? ");
-        String oq = tc.nextLine();
-        switch (oq) {
-            case "Nome":
+        escolha();
+        int esc = tc.nextInt();
+        switch (esc) {
+            case 1:
                 System.out.print("Digite o novo nome: ");
                 String novoNome = tc.nextLine();
                 pets.get(n).setNome(novoNome);
@@ -21,7 +21,7 @@ public class AlterandoDados {
                     System.out.println("Nome alterado com sucesso!");
                 }
                 break;
-            case "Endereço":
+            case 2:
                 System.out.print("Digite o novo endereço: ");
                 String novoEndereco = tc.nextLine();
                 pets.get(n).setEndereco(novoEndereco);
@@ -29,7 +29,7 @@ public class AlterandoDados {
                     System.out.println("Endereço alterado com isso");
                 }
                 break;
-            case "Idade":
+            case 3:
                 System.out.print("Digite a nova idade: ");
                 String novaIdade = tc.nextLine();
                 pets.get(n).setIdade(novaIdade);
@@ -37,7 +37,7 @@ public class AlterandoDados {
                     System.out.println("Idade alterada com sucesso");
                 }
                 break;
-            case "Peso":
+            case 4:
                 System.out.print("Digite o novo peso: ");
                 String novoPeso = tc.nextLine();
                 pets.get(n).setPeso(novoPeso);
@@ -45,7 +45,7 @@ public class AlterandoDados {
                     System.out.println("Peso alterada com sucesso");
                 }
                 break;
-            case "Raça":
+            case 5:
                 System.out.print("Digite a nova raça: ");
                 String novaRaca = tc.nextLine();
                 pets.get(n).setRaca(novaRaca);
@@ -54,5 +54,14 @@ public class AlterandoDados {
                 }
                 break;
         }
+    }
+
+    public static void escolha() {
+        System.out.println("O que você deseja alterar? ");
+        System.out.println("[1] Nome");
+        System.out.println("[2] Endereço");
+        System.out.println("[3] Idade");
+        System.out.println("[4] Peso");
+        System.out.println("[5] Raça");
     }
 }

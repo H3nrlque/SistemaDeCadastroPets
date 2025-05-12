@@ -43,9 +43,6 @@ public class CadastrarPet {
             if (Double.parseDouble(idade) > 20) {
                 throw new IllegalArgumentException("Idade inválida");
             }
-            if (Integer.parseInt(idade) < 1) {
-                idade = idade.concat(" anos");
-            }
 
             Pet pet = new Pet(nome, TipoDeAnimal.valueOf(tipo), Sexo.valueOf(sexo), endereco, idade, peso, raca);
             Pet.adicionarPet(pet);

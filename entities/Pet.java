@@ -112,8 +112,8 @@ public class Pet {
                +tipoDeAnimal.toString() + " - "
                +sexo.toString() + " - "
                +endereco + " - "
-               +idade + " anos - "
-               +peso + "Kg - "
+               +idade + " - "
+               +peso + " - "
                +raca + "\n";
     }
 

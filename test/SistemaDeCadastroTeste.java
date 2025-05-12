@@ -69,6 +69,7 @@ public class SistemaDeCadastroTeste {
         System.out.println("[4] Listar todos os pets cadastrados");
         System.out.println("[5] Listar pets por algum critério (idade, nome, raça)");
         System.out.println("[6] Sair");
+        System.out.print("Escolha uma opção: ");
         return tc.nextInt();
     }
 
